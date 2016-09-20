@@ -44,6 +44,47 @@ set grepprg=grep\ -nh
 " To clear the search results of the highlights in the ESC key
 nnoremap <ESC><ESC> :nohlsearch<CR>
 
+"----------------------------------------------------
+" Emacs key bind(Only input mode)
+"----------------------------------------------------
+" Command input interruption
+imap <silent> <C-g> <ESC><ESC><ESC><CR>i
+
+" Screen split
+imap <silent> <C-x>1 <ESC>:only<CR>i
+imap <silent> <C-x>2 <ESC>:sp<CR>i
+imap <silent> <C-x>3 <ESC>:vsp<CR>i
+imap <silent> <C-x>o <ESC><C-w>w<CR>i
+imap <silent> <C-x>p <ESC><C-w>p<CR>i
+
+" Delete, Edit
+imap <C-k> <ESC>d$i
+imap <C-y> <ESC>pi
+imap <C-d> <ESC>xi
+
+" Move
+imap <C-a>  <Home>
+imap <C-e>  <End>
+imap <C-b>  <Left>
+imap <C-f>  <Right>
+imap <C-n>  <Down>
+imap <C-p>  <UP>
+"imap <ESC>< <ESC>ggi
+"imap <ESC>> <ESC>Gi
+
+" File
+imap <C-c><C-c>  <ESC>:qa<CR>
+imap <C-x><C-c>  <ESC>:qa!<CR>
+imap <C-w><C-w>  <ESC>:w<CR>
+imap <C-x><C-w>  <ESC>:w!<CR>
+imap <C-x><C-f>  <ESC>:e
+
+" Error recovery
+" imap <C-/> <ESC>ui
+
+" Other
+map  <C-x><C-e>  :Explore<CR>
+
 "----------------
 " NeoBundle settings
 "----------------
@@ -144,48 +185,6 @@ NeoBundle 'itchyny/calendar.vim'
 
 " vim-highlighturl
 NeoBundle 'vim-highlighturl'
-
-
-"----------------------------------------------------
-" Emacs key bind(Only input mode)
-"----------------------------------------------------
-" Command input interruption
-imap <silent> <C-g> <ESC><ESC><ESC><CR>i
-
-" Screen split
-imap <silent> <C-x>1 <ESC>:only<CR>i
-imap <silent> <C-x>2 <ESC>:sp<CR>i
-imap <silent> <C-x>3 <ESC>:vsp<CR>i
-imap <silent> <C-x>o <ESC><C-w>w<CR>i
-imap <silent> <C-x>p <ESC><C-w>p<CR>i
-
-" Delete, Edit
-imap <C-k> <ESC>d$i
-imap <C-y> <ESC>pi
-imap <C-d> <ESC>xi
-
-" Move
-imap <C-a>  <Home>
-imap <C-e>  <End>
-imap <C-b>  <Left>
-imap <C-f>  <Right>
-imap <C-n>  <Down>
-imap <C-p>  <UP>
-"imap <ESC>< <ESC>ggi
-"imap <ESC>> <ESC>Gi
-
-" File
-imap <C-c><C-c>  <ESC>:qa<CR>
-imap <C-x><C-c>  <ESC>:qa!<CR>
-imap <C-w><C-w>  <ESC>:w<CR>
-imap <C-x><C-w>  <ESC>:w!<CR>
-imap <C-x><C-f>  <ESC>:e
-
-" Error recovery
-" imap <C-/> <ESC>ui
-
-" Other
-map  <C-x><C-e>  :Explore<CR>
 
 " To convenient file open
 NeoBundle 'Shougo/unite.vim'
