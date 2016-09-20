@@ -83,7 +83,7 @@ imap <C-x><C-f>  <ESC>:e
 " imap <C-/> <ESC>ui
 
 " Other
-map  <C-x><C-e>  :Explore<CR>
+imap  <C-x><C-e>  :Explore<CR>
 
 "----------------
 " NeoBundle settings
@@ -172,7 +172,8 @@ inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
 inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
 inoremap <expr><C-y>  neocomplete#close_popup()
-inoremap <expr><C-e>  neocomplete#cancel_popup()
+" Comment out, so conflict to Emacs keybind.
+" inoremap <expr><C-e>  neocomplete#cancel_popup()
 
 " lightline
 NeoBundle 'itchyny/lightline.vim'
@@ -219,3 +220,7 @@ autocmd BufRead,BufNewFile *.yml setfiletype yml
 
 " Error handing to "neosnippet"
 NeoBundle 'Shougo/neosnippet-snippets'
+
+
+
+
