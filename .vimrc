@@ -118,18 +118,28 @@ NeoBundle 'kana/vim-textobj-user'
 NeoBundle 'rhysd/vim-textobj-ruby'
 NeoBundle 'vim-ruby/vim-ruby'
 
-" NeoBundle 'https://bitbucket.org/kovisoft/slimv'
 
-filetype plugin indent on     " required!
-filetype indent on
-syntax on
+" lightline
+NeoBundle 'itchyny/lightline.vim'
 
-"----------------
-" changelog setting
-"----------------
-let g:changelog_dateformat='%Y-%m-%d'
-let g:changelog_username='name <example@mail.com>'
-nnoremap <Leader>o :new ~/changelog/changelog<CR>
+" vim-haskell-indent
+NeoBundle 'vim-haskell-indent'
+
+" calendar
+NeoBundle 'itchyny/calendar.vim'
+
+" vim-highlighturl
+NeoBundle 'vim-highlighturl'
+
+" In Unite.vim, to display the recent documents
+NeoBundle 'Shougo/neomru.vim'
+" Tree display the file
+NeoBundle 'scrooloose/nerdtree'
+" Comments of the ON/OFF
+NeoBundle 'tomtom/tcomment_vim'
+" Add color to the indentation
+NeoBundle 'nathanaelkane/vim-indent-guides'
+
 
 "----------------
 " Markdown setting
@@ -144,6 +154,28 @@ NeoBundle 'derekwyatt/vim-scala'
 
 " https://github.com/Shougo/neocomplete.vim
 NeoBundle 'Shougo/neocomplete.vim'
+
+" Add color the log file
+NeoBundle 'vim-scripts/AnsiEsc.vim'
+
+" Visualize the end-of-line half-width space
+NeoBundle 'bronson/vim-trailing-whitespace'
+
+" Error handing to "neosnippet"
+NeoBundle 'Shougo/neosnippet-snippets'
+
+" NeoBundle 'https://bitbucket.org/kovisoft/slimv'
+
+filetype plugin indent on     " required!
+filetype indent on
+syntax on
+
+"----------------
+" changelog setting
+"----------------
+let g:changelog_dateformat='%Y-%m-%d'
+let g:changelog_username='name <example@mail.com>'
+nnoremap <Leader>o :new ~/changelog/changelog<CR>
 
 " Use neocomplete.
 let g:neocomplete#enable_at_startup = 1
@@ -179,37 +211,9 @@ inoremap <expr><C-y>  neocomplete#close_popup()
 " Comment out, so conflict to Emacs keybind.
 " inoremap <expr><C-e>  neocomplete#cancel_popup()
 
-" lightline
-NeoBundle 'itchyny/lightline.vim'
-
-" vim-haskell-indent
-NeoBundle 'vim-haskell-indent'
-
-" calendar
-NeoBundle 'itchyny/calendar.vim'
-
-" vim-highlighturl
-NeoBundle 'vim-highlighturl'
-
-" To convenient file open
-NeoBundle 'Shougo/unite.vim'
-" In Unite.vim, to display the recent documents
-NeoBundle 'Shougo/neomru.vim'
-" Tree display the file
-NeoBundle 'scrooloose/nerdtree'
-" Comments of the ON/OFF
-NeoBundle 'tomtom/tcomment_vim'
-" Add color to the indentation
-NeoBundle 'nathanaelkane/vim-indent-guides'
-
 " When launched the Vim, automatically turn on the vim-indent-guides
 let g:indent_guides_enable_on_vim_startup = 1
 
-" Add color the log file
-NeoBundle 'vim-scripts/AnsiEsc.vim'
-
-" Visualize the end-of-line half-width space
-NeoBundle 'bronson/vim-trailing-whitespace'
 
 " If the file type is Ruby and CoffeeScript, execute to "~/.vim/ftplugin/ruby"
 autocmd BufRead,BufNewFile *.rb setfiletype ruby
@@ -217,19 +221,16 @@ autocmd BufRead,BufNewFile *.scss setfiletype ruby
 autocmd BufRead,BufNewFile *.coffee setfiletype ruby
 
 " If the file type is Javascript, execute to "~/.vim/ftplugin/javascript"
-autocmd BufRead,BufNewFile *.js setfiletype javascript
+autocmd BufRead,BufNewFile *.js setfiletype ruby "bug =>javascript
 
 " If the file type is yml, execute to "~/.vim/ftplugin/yml"
-autocmd BufRead,BufNewFile *.yml setfiletype yml
-
-" Error handing to "neosnippet"
-NeoBundle 'Shougo/neosnippet-snippets'
-
+autocmd BufRead,BufNewFile *.yml setfiletype ruby "bug?? => yml
 
 """ Ruby Setting - Start """
 
 let g:neocomplete#sources#dictionary#dictionaries = {
-\  'ruby' : $HOME . '/dicts/ruby.dict',
+\  'ruby' : $HOME . '/.vim/dicts/ruby/dicts/ruby.dict',
+\  'javascript': $HOME . '/.vim/dicts/ruby/dicts/jquery.dict',
 \ }
 
 let s:bundle = neobundle#get('ruby_hl_lvar.vim')
@@ -238,4 +239,3 @@ function! s:bundle.hooks.on_post_source(bundle)
 endfunction
 
 """ Ruby Setting - end """
-
