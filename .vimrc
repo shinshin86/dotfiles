@@ -112,7 +112,11 @@ NeoBundle 'tell-k/vim-browsereload-mac'
 NeoBundle 'hail2u/vim-css3-syntax'
 NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'kchmck/vim-coffee-script'
-
+NeoBundle 'Shougo/vimfiler'
+NeoBundle 'todesking/ruby_hl_lvar.vim'
+NeoBundle 'kana/vim-textobj-user'
+NeoBundle 'rhysd/vim-textobj-ruby'
+NeoBundle 'vim-ruby/vim-ruby'
 
 " NeoBundle 'https://bitbucket.org/kovisoft/slimv'
 
@@ -222,5 +226,16 @@ autocmd BufRead,BufNewFile *.yml setfiletype yml
 NeoBundle 'Shougo/neosnippet-snippets'
 
 
+""" Ruby Setting - Start """
 
+let g:neocomplete#sources#dictionary#dictionaries = {
+\  'ruby' : $HOME . '/dicts/ruby.dict',
+\ }
+
+let s:bundle = neobundle#get('ruby_hl_lvar.vim')
+function! s:bundle.hooks.on_post_source(bundle)
+        silent! execute 'doautocmd FileType' &filetype
+endfunction
+
+""" Ruby Setting - end """
 
