@@ -218,7 +218,7 @@ let g:indent_guides_enable_on_vim_startup = 1
 " If the file type is Ruby and CoffeeScript, execute to "~/.vim/ftplugin/ruby"
 autocmd BufRead,BufNewFile *.rb setfiletype ruby
 autocmd BufRead,BufNewFile *.scss setfiletype ruby
-autocmd BufRead,BufNewFile *.coffee setfiletype ruby
+autocmd BufRead,BufNewFile *.coffee setfiletype coffee
 
 " If the file type is Javascript, execute to "~/.vim/ftplugin/javascript"
 autocmd BufRead,BufNewFile *.js setfiletype ruby "bug =>javascript
