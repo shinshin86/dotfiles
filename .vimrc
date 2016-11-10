@@ -37,6 +37,10 @@ set smarttab
 " Don't take over the comments to the next line
 autocmd FileType * setlocal formatoptions-=ro
 
+" Setting color theme(hybrid)
+set background=dark
+colorscheme hybrid
+
 " Setting a grep search
 set grepformat=%f:%l:%m,%f:%l%m,%f\ \ %l%m,%f
 set grepprg=grep\ -nh
@@ -117,7 +121,7 @@ NeoBundle 'todesking/ruby_hl_lvar.vim'
 NeoBundle 'kana/vim-textobj-user'
 NeoBundle 'rhysd/vim-textobj-ruby'
 NeoBundle 'vim-ruby/vim-ruby'
-
+NeoBundle 'w0ng/vim-hybrid'
 
 " lightline
 NeoBundle 'itchyny/lightline.vim'
