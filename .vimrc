@@ -1,6 +1,6 @@
-"-------------------
+" -------------------
 " Basic settings
-"-------------------
+" -------------------
 " The indentation of the new line, the same as the current line.
 set autoindent
 
@@ -306,3 +306,15 @@ function! LightlineMode()
 endfunction
 
 """ lightline Setting - end """
+
+""" Rust setting """
+NeoBundle 'rust-lang/rust.vim'
+NeoBundle 'racer-rust/vim-racer'
+
+let g:rustfmt_autosave = 0
+let g:rustfmt_command = '$HOME/.cargo/bin/rustfmt'
+
+set hidden
+let g:racer_cmd = "$HOME/.cargo/bin/racer"
+let $RUST_SRC_PATH="<path-to-rust-srcdir>/src/"
+""" Rust setting - end """
