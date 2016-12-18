@@ -98,7 +98,7 @@ filetype off
 
 if has('vim_starting')
     set runtimepath+=~/.vim/bundle/neobundle.vim
-    call neobundle#rc(expand('~/.vim/bundle/'))
+    call neobundle#begin(expand('~/.vim/bundle/'))
 endif
 NeoBundle 'Shougo/neobundle.vim'
 NeoBundle 'VimClojure'
@@ -318,3 +318,5 @@ set hidden
 let g:racer_cmd = "$HOME/.cargo/bin/racer"
 let $RUST_SRC_PATH="<path-to-rust-srcdir>/src/"
 """ Rust setting - end """
+
+call neobundle#end()
