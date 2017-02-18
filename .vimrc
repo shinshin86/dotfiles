@@ -45,6 +45,9 @@ colorscheme hybrid
 set grepformat=%f:%l:%m,%f:%l%m,%f\ \ %l%m,%f
 set grepprg=grep\ -nh
 
+" Modify problem that backspace key cannot erase character
+set backspace=indent,eol,start
+
 " To clear the search results of the highlights in the ESC key
 nnoremap <ESC><ESC> :nohlsearch<CR>
 
