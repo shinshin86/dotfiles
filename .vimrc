@@ -146,7 +146,8 @@ NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'tomtom/tcomment_vim'
 " Add color to the indentation
 NeoBundle 'nathanaelkane/vim-indent-guides'
-
+""" Elixir setting  """
+NeoBundle "elixir-lang/vim-elixir"
 
 "----------------
 " Markdown setting
@@ -323,10 +324,6 @@ set hidden
 let g:racer_cmd = "$HOME/.cargo/bin/racer"
 let $RUST_SRC_PATH="<path-to-rust-srcdir>/src/"
 """ Rust setting - end """
-
-""" Elixir setting - start """
-NeoBundle "elixir-lang/vim-elixir"
-""" Elixir setting -end """
 
 call neobundle#end()
 
