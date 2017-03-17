@@ -324,4 +324,9 @@ let g:racer_cmd = "$HOME/.cargo/bin/racer"
 let $RUST_SRC_PATH="<path-to-rust-srcdir>/src/"
 """ Rust setting - end """
 
+""" Elixir setting - start """
+NeoBundle "elixir-lang/vim-elixir"
+""" Elixir setting -end """
+
 call neobundle#end()
+
