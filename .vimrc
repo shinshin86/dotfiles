@@ -237,6 +237,9 @@ autocmd BufRead,BufNewFile *.yml setfiletype ruby "bug?? => yml
 " If the file type is HTML, execute to "~/.vim/ftplugin/html"
 autocmd BufRead,BufNewFile *.html setfiletype html
 
+" If the file type is CSS, execute to "~/.vim/ftplugin/css"
+autocmd BufRead,BufNewFile *.css setfiletype css
+
 """ Ruby Setting - Start """
 
 let g:neocomplete#sources#dictionary#dictionaries = {
