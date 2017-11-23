@@ -230,7 +230,8 @@ autocmd BufRead,BufNewFile *.coffee setfiletype coffee
 
 " If the file type is Javascript, execute to "~/.vim/ftplugin/javascript"
 autocmd BufRead,BufNewFile *.js setfiletype ruby "bug =>javascript
-
+" json
+autocmd BufRead,BufNewFile *.json setfiletype ruby "bug =>javascript
 " If the file type is yml, execute to "~/.vim/ftplugin/yml"
 autocmd BufRead,BufNewFile *.yml setfiletype ruby "bug?? => yml
 
@@ -332,4 +333,16 @@ let $RUST_SRC_PATH="<path-to-rust-srcdir>/src/"
 """ Rust setting - end """
 
 call neobundle#end()
+
+""" jq command """
+command! -nargs=? Jq call s:Jq(<f-args>)
+function! s:Jq(...)
+    if 0 == a:0
+        let l:arg = "."
+    else
+        let l:arg = a:1
+    endif
+    execute "%! jq \"" . l:arg . "\""
+endfunction
+
 
