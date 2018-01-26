@@ -96,9 +96,10 @@ autocmd FileType * setlocal formatoptions-=ro
 set t_Co=256
 set termguicolors
 
-" Setting color theme(hybrid)
+" Setting color theme(hybrid or iceberg)
 set background=dark
-colorscheme hybrid
+" colorscheme hybrid
+colorscheme iceberg
 
 " Setting a grep search
 set grepformat=%f:%l:%m,%f:%l%m,%f\ \ %l%m,%f

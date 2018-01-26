@@ -4,6 +4,9 @@ repo = 'Shougo/dein.vim'
 [[plugins]] # hybrid
 repo = 'w0ng/vim-hybrid'
 
+[[plugins]] # icebarg
+repo = 'cocopon/iceberg.vim'
+
 [[plugins]] # status line
 repo = 'itchyny/lightline.vim'
 hook_add = '''
