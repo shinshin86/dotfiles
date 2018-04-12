@@ -190,3 +190,12 @@ let g:go_highlight_build_constraints = 1
 let g:deoplete#sources#go#align_class = 1
 let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
 let g:deoplete#sources#go#package_dot = 1
+
+"----------------------------------------------------
+" JavaScript - Prettier
+"----------------------------------------------------
+let g:neoformat_javascript_prettier = {
+      \ 'exe': getcwd() .'/node_modules/.bin/prettier',
+      \ 'args': ['--stdin', '--no-semi', '--single-quote'],
+      \ 'stdin': 1,
+      \ }
