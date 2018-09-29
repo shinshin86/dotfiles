@@ -19,6 +19,9 @@ repo  = 'cespare/vim-toml'
 [[plugins]] # Golang
 repo = 'fatih/vim-go'
 
+[[plugins]] # Elixir
+repo = 'elixir-editors/vim-elixir'
+
 [[plugins]] # Japanese doc
 repo = 'vim-jp/vimdoc-ja'
 hook_add = '''
