@@ -6,5 +6,16 @@
 [alias]
         log-all = log --graph --all --color --pretty='%x09%h %cn%x09%s %Cred%d%Creset'
         graph = log --graph --date-order -C -M --pretty=format:\"<%h %ad [%an] %Cgreen%d%Creset %s\" --all --date=short
+	st = status
+	co = checkout
+	br = branch
+	cm = commit
+	df = diff
+	gr = grep
 [core]
 	editor = vim
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
