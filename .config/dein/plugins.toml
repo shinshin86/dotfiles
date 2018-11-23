@@ -33,3 +33,6 @@ repo = 'scrooloose/nerdtree'
 
 [[plugins]]
 repo = 'sbdchd/neoformat'
+
+[[plugins]]
+repo = 'posva/vim-vue'

@@ -199,3 +199,8 @@ let g:neoformat_javascript_prettier = {
       \ 'args': ['--stdin', '--no-semi', '--single-quote'],
       \ 'stdin': 1,
       \ }
+
+"----------------------------------------------------
+" Vue setting
+"----------------------------------------------------
+autocmd FileType vue syntax sync fromstart
