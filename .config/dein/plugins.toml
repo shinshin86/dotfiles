@@ -36,3 +36,6 @@ repo = 'sbdchd/neoformat'
 
 [[plugins]]
 repo = 'posva/vim-vue'
+
+[[plugins]]
+repo = 'leafgarland/typescript-vim'
