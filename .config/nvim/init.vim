@@ -204,3 +204,9 @@ let g:neoformat_javascript_prettier = {
 " Vue setting
 "----------------------------------------------------
 autocmd FileType vue syntax sync fromstart
+
+"----------------------------------------------------
+" Buffer next and prev
+"----------------------------------------------------
+nnoremap <silent> <C-j> :bprev<CR>
+nnoremap <silent> <C-k> :bnext<CR>
