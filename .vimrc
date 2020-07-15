@@ -174,6 +174,10 @@ NeoBundle 'Shougo/neosnippet-snippets'
 
 " NeoBundle 'https://bitbucket.org/kovisoft/slimv'
 
+" vim lsp setting
+NeoBundle 'prabirshrestha/vim-lsp'
+NeoBundle 'mattn/vim-lsp-settings'
+
 filetype plugin indent on     " required!
 filetype indent on
 syntax on
