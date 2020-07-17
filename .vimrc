@@ -148,6 +148,8 @@ NeoBundle 'tomtom/tcomment_vim'
 NeoBundle 'nathanaelkane/vim-indent-guides'
 """ Elixir setting  """
 NeoBundle "elixir-lang/vim-elixir"
+" golang
+NeoBundle 'fatih/vim-go'
 
 "----------------
 " Markdown setting
