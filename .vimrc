@@ -28,6 +28,9 @@ set incsearch
 " To display the line number
 set number
 
+" line number color
+autocmd ColorScheme * highlight LineNr ctermfg=74
+
 " When entering the closing parenthesis, emphasize the corresponding parenthesis
 set showmatch
 
