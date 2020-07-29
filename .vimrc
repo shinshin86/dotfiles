@@ -1,357 +1,64 @@
-" -------------------
-" Basic settings
-" -------------------
-" The indentation of the new line, the same as the current line.
-set autoindent
+""""""""""""""""""""""""""""""
+" vimrc
+""""""""""""""""""""""""""""""
+call plug#begin('~/.vim/plugged')
 
-" To specify a directory of backup files.
-set backupdir=$HOME/vimbackup
+" Japanese Help
+Plug 'vim-jp/vimdoc-ja'
 
-" To work the clipboard and Windows
-set clipboard=unnamed
+" fzf
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 
-" To turn off the vi-compatible
+" vim lsp setting
+Plug 'prabirshrestha/vim-lsp'
+Plug 'mattn/vim-lsp-settings'
+
+" color scheme
+Plug 'chriskempson/base16-vim'
+
+" Customize status bar
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+call plug#end()
+""""""""""""""""""""""""""""""
 set nocompatible
-
-" To specify a directory of swap file
-set directory=$HOME/vimbackup
-
-" To specify a blank character instead of the tab
-set expandtab
-
-" In the file being changed, to display the order files without saving.
-set hidden
-
-" Perform an incremental search
-set incsearch
-
-" To display the line number
+set backspace=indent,eol,start
+set encoding=utf-8
+set helplang=ja,en
 set number
+set expandtab
+set hlsearch
+set ignorecase
+set incsearch
+set smartcase
+set laststatus=2
+syntax on
+set autoindent
+filetype plugin indent on
+set showcmd
+set background=dark
+set wildmenu
+set ruler
+set showmatch
+set clipboard+=unnamed
 
 " line number color
-autocmd ColorScheme * highlight LineNr ctermfg=74
+highlight lineNr term=underline ctermfg=11 guifg=Grey
 
-" When entering the closing parenthesis, emphasize the corresponding parenthesis
-set showmatch
+" setting color scheme
+let base16colorspace=256  " Access colors present in 256 colorspace
+set termguicolors
+colorscheme base16-default-dark
 
-" When create a new line, perform automatic indentation
-set smarttab
+" setting status bar
+let g:airline_theme='luna'
 
-" Don't take over the comments to the next line
-autocmd FileType * setlocal formatoptions-=ro
-
-" Setting color theme(hybrid)
-set background=dark
-colorscheme hybrid
-
-" Setting a grep search
-set grepformat=%f:%l:%m,%f:%l%m,%f\ \ %l%m,%f
-set grepprg=grep\ -nh
-
-" Modify problem that backspace key cannot erase character
-set backspace=indent,eol,start
-
-" To clear the search results of the highlights in the ESC key
-nnoremap <ESC><ESC> :nohlsearch<CR>
-
-"----------------------------------------------------
-" Emacs key bind(Only input mode)
-"----------------------------------------------------
-" Command input interruption
-imap <silent> <C-g> <ESC><ESC><ESC><CR>i
-
-" Screen split
-imap <silent> <C-x>1 <ESC>:only<CR>i
-imap <silent> <C-x>2 <ESC>:sp<CR>i
-imap <silent> <C-x>3 <ESC>:vsp<CR>i
-imap <silent> <C-x>o <ESC><C-w>w<CR>i
-imap <silent> <C-x>p <ESC><C-w>p<CR>i
-
-" Delete, Edit
-imap <C-k> <ESC>d$i
-imap <C-y> <ESC>pi
-imap <C-d> <ESC>xi
-
-" Move
+" Emacs Move
 imap <C-a>  <Home>
 imap <C-e>  <End>
 imap <C-b>  <Left>
 imap <C-f>  <Right>
 imap <C-n>  <Down>
 imap <C-p>  <UP>
-"imap <ESC>< <ESC>ggi
-"imap <ESC>> <ESC>Gi
-
-" File
-imap <C-c><C-c>  <ESC>:qa<CR>
-imap <C-x><C-c>  <ESC>:qa!<CR>
-imap <C-w><C-w>  <ESC>:w<CR>
-imap <C-x><C-w>  <ESC>:w!<CR>
-imap <C-x><C-f>  <ESC>:e
-
-" Error recovery
-" imap <C-/> <ESC>ui
-
-" Other
-imap  <C-x><C-e>  :Explore<CR>
-
-"----------------
-" NeoBundle settings
-"----------------
-
-set nocompatible               " be iMproved
-filetype off
-
-if has('vim_starting')
-    set runtimepath+=~/.vim/bundle/neobundle.vim
-    call neobundle#begin(expand('~/.vim/bundle/'))
-endif
-NeoBundle 'Shougo/neobundle.vim'
-NeoBundle 'VimClojure'
-NeoBundle 'Shougo/vimshell'
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Shougo/neocomplcache'
-NeoBundle 'Shougo/neosnippet'
-NeoBundle 'jpalardy/vim-slime'
-NeoBundle 'scrooloose/syntastic'
-NeoBundle 'mattn/emmet-vim'
-NeoBundle 'kannokanno/previm'
-NeoBundle 'open-browser.vim'
-NeoBundle 'mattn/webapi-vim'
-NeoBundle 'tell-k/vim-browsereload-mac'
-NeoBundle 'hail2u/vim-css3-syntax'
-NeoBundle 'pangloss/vim-javascript'
-NeoBundle 'kchmck/vim-coffee-script'
-NeoBundle 'Shougo/vimfiler'
-NeoBundle 'todesking/ruby_hl_lvar.vim'
-NeoBundle 'kana/vim-textobj-user'
-NeoBundle 'rhysd/vim-textobj-ruby'
-NeoBundle 'vim-ruby/vim-ruby'
-NeoBundle 'w0ng/vim-hybrid'
-
-" lightline
-NeoBundle 'itchyny/lightline.vim'
-
-" vim-haskell-indent
-NeoBundle 'vim-haskell-indent'
-
-" calendar
-NeoBundle 'itchyny/calendar.vim'
-
-" vim-highlighturl
-NeoBundle 'vim-highlighturl'
-
-" In Unite.vim, to display the recent documents
-NeoBundle 'Shougo/neomru.vim'
-" Tree display the file
-NeoBundle 'scrooloose/nerdtree'
-" Comments of the ON/OFF
-NeoBundle 'tomtom/tcomment_vim'
-" Add color to the indentation
-NeoBundle 'nathanaelkane/vim-indent-guides'
-""" Elixir setting  """
-NeoBundle "elixir-lang/vim-elixir"
-" golang
-NeoBundle 'fatih/vim-go'
-
-"----------------
-" Markdown setting
-"----------------
-NeoBundle 'plasticboy/vim-markdown'
-au BufRead,BufNewFile *.md set filetype=markdown
-
-"----------------
-" scala's syntax highlight
-"----------------
-NeoBundle 'derekwyatt/vim-scala'
-
-" https://github.com/Shougo/neocomplete.vim
-NeoBundle 'Shougo/neocomplete.vim'
-
-" Add color the log file
-NeoBundle 'vim-scripts/AnsiEsc.vim'
-
-" Visualize the end-of-line half-width space
-NeoBundle 'bronson/vim-trailing-whitespace'
-
-" Error handing to "neosnippet"
-NeoBundle 'Shougo/neosnippet-snippets'
-
-" NeoBundle 'https://bitbucket.org/kovisoft/slimv'
-
-" vim lsp setting
-NeoBundle 'prabirshrestha/vim-lsp'
-NeoBundle 'mattn/vim-lsp-settings'
-
-filetype plugin indent on     " required!
-filetype indent on
-syntax on
-
-"----------------
-" changelog setting
-"----------------
-let g:changelog_dateformat='%Y-%m-%d'
-let g:changelog_username='name <example@mail.com>'
-nnoremap <Leader>o :new ~/changelog/changelog<CR>
-
-" Use neocomplete.
-let g:neocomplete#enable_at_startup = 1
-
-" Use smartcase.
-let g:neocomplete#enable_smart_case = 1
-
-" Use underbar completion.
-let g:neocomplete#enable_underbar_completion = 1
-
-" Dict setting
-let g:neocomplete#sources#dictionary#dictionaries = {
-  \ 'default' : '',
-  \ 'scala' : $HOME . '/.vim/dict/scala.dict',
-  \ }
-
-" Plugin key-mappings.
-inoremap <expr><C-g>     neocomplete#undo_completion()
-inoremap <expr><C-l>     neocomplete#complete_common_string()
-
-" Recommended key-mappings.
-" <CR>: close popup and save indent.
-inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-function! s:my_cr_function()
-  return neocomplete#close_popup() . "\<CR>"
-endfunction
-" <TAB>: completion.
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-" <C-h>, <BS>: close popup and delete backword char.
-inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
-inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
-inoremap <expr><C-y>  neocomplete#close_popup()
-" Comment out, so conflict to Emacs keybind.
-" inoremap <expr><C-e>  neocomplete#cancel_popup()
-
-" When launched the Vim, automatically turn on the vim-indent-guides
-let g:indent_guides_enable_on_vim_startup = 1
-
-
-" If the file type is Ruby and CoffeeScript, execute to "~/.vim/ftplugin/ruby"
-autocmd BufRead,BufNewFile *.rb setfiletype ruby
-autocmd BufRead,BufNewFile *.scss setfiletype ruby
-autocmd BufRead,BufNewFile *.coffee setfiletype coffee
-
-" If the file type is Javascript, execute to "~/.vim/ftplugin/javascript"
-autocmd BufRead,BufNewFile *.js setfiletype ruby "bug =>javascript
-" json
-autocmd BufRead,BufNewFile *.json setfiletype ruby "bug =>javascript
-" If the file type is yml, execute to "~/.vim/ftplugin/yml"
-autocmd BufRead,BufNewFile *.yml setfiletype ruby "bug?? => yml
-
-" If the file type is HTML, execute to "~/.vim/ftplugin/html"
-autocmd BufRead,BufNewFile *.html setfiletype html
-
-" If the file type is CSS, execute to "~/.vim/ftplugin/css"
-autocmd BufRead,BufNewFile *.css setfiletype css
-
-""" Ruby Setting - Start """
-
-let g:neocomplete#sources#dictionary#dictionaries = {
-\  'ruby' : $HOME . '/.vim/dicts/ruby/dicts/ruby.dict',
-\  'javascript': $HOME . '/.vim/dicts/ruby/dicts/jquery.dict',
-\ }
-
-let s:bundle = neobundle#get('ruby_hl_lvar.vim')
-function! s:bundle.hooks.on_post_source(bundle)
-        silent! execute 'doautocmd FileType' &filetype
-endfunction
-
-""" Ruby Setting - end """
-
-""" lightline Setting - start """
-set laststatus=2
-set t_Co=256
-
-let g:lightline = {
-        \ 'colorscheme': 'wombat',
-        \ 'mode_map': {'c': 'NORMAL'},
-        \ 'active': {
-        \   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ] ]
-        \ },
-        \ 'component_function': {
-        \   'modified': 'LightlineModified',
-        \   'readonly': 'LightlineReadonly',
-        \   'fugitive': 'LightlineFugitive',
-        \   'filename': 'LightlineFilename',
-        \   'fileformat': 'LightlineFileformat',
-        \   'filetype': 'LightlineFiletype',
-        \   'fileencoding': 'LightlineFileencoding',
-        \   'mode': 'LightlineMode'
-        \ }
-        \ }
-
-function! LightlineModified()
-  return &ft =~ 'help\|vimfiler\|gundo' ? '' : &modified ? '+' : &modifiable ? '' : '-'
-endfunction
-
-function! LightlineReadonly()
-  return &ft !~? 'help\|vimfiler\|gundo' && &readonly ? 'x' : ''
-endfunction
-
-function! LightlineFilename()
-  return ('' != LightlineReadonly() ? LightlineReadonly() . ' ' : '') .
-        \ (&ft == 'vimfiler' ? vimfiler#get_status_string() :
-        \  &ft == 'unite' ? unite#get_status_string() :
-        \  &ft == 'vimshell' ? vimshell#get_status_string() :
-        \ '' != expand('%:t') ? expand('%:t') : '[No Name]') .
-        \ ('' != LightlineModified() ? ' ' . LightlineModified() : '')
-endfunction
-
-function! LightlineFugitive()
-  if &ft !~? 'vimfiler\|gundo' && exists('*fugitive#head')
-    return fugitive#head()
-  else
-    return ''
-  endif
-endfunction
-
-function! LightlineFileformat()
-  return winwidth(0) > 70 ? &fileformat : ''
-endfunction
-
-function! LightlineFiletype()
-  return winwidth(0) > 70 ? (&filetype !=# '' ? &filetype : 'no ft') : ''
-endfunction
-
-function! LightlineFileencoding()
-  return winwidth(0) > 70 ? (&fenc !=# '' ? &fenc : &enc) : ''
-endfunction
-
-function! LightlineMode()
-  return winwidth(0) > 60 ? lightline#mode() : ''
-endfunction
-
-""" lightline Setting - end """
-
-""" Rust setting """
-NeoBundle 'rust-lang/rust.vim'
-NeoBundle 'racer-rust/vim-racer'
-
-let g:rustfmt_autosave = 0
-let g:rustfmt_command = '$HOME/.cargo/bin/rustfmt'
-
-set hidden
-let g:racer_cmd = "$HOME/.cargo/bin/racer"
-let $RUST_SRC_PATH="<path-to-rust-srcdir>/src/"
-""" Rust setting - end """
-
-call neobundle#end()
-
-""" jq command """
-command! -nargs=? Jq call s:Jq(<f-args>)
-function! s:Jq(...)
-    if 0 == a:0
-        let l:arg = "."
-    else
-        let l:arg = a:1
-    endif
-    execute "%! jq \"" . l:arg . "\""
-endfunction
-
-
