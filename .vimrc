@@ -27,6 +27,9 @@ Plug 'chriskempson/base16-vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
+" ctrlp
+Plug 'ctrlpvim/ctrlp.vim'
+
 call plug#end()
 """"""""""""""""""""""""""""""
 set nocompatible
