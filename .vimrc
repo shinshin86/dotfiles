@@ -30,6 +30,9 @@ Plug 'vim-airline/vim-airline-themes'
 " ctrlp
 Plug 'ctrlpvim/ctrlp.vim'
 
+" file explorer
+Plug 'mattn/vim-molder'
+
 call plug#end()
 """"""""""""""""""""""""""""""
 set nocompatible
