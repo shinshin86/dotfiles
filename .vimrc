@@ -33,6 +33,9 @@ Plug 'ctrlpvim/ctrlp.vim'
 " file explorer
 Plug 'mattn/vim-molder'
 
+" toml
+Plug 'cespare/vim-toml'
+
 call plug#end()
 """"""""""""""""""""""""""""""
 set nocompatible
