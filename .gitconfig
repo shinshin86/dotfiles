@@ -11,7 +11,8 @@
 	br = branch
 	cm = commit
 	df = diff
-	gr = grep
+        gr = grep
+        delete-merged-branch = !git branch --merged|egrep -v '\\*|develop|master|main'|xargs git branch -d
 [core]
 	editor = vim
 [filter "lfs"]
