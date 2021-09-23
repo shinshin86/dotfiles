@@ -58,6 +58,8 @@ set wildmenu
 set ruler
 set showmatch
 set clipboard+=unnamed
+set tabstop=2
+set shiftwidth=2
 
 " line number color
 highlight lineNr term=underline ctermfg=11 guifg=Grey
