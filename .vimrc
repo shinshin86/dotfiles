@@ -92,3 +92,9 @@ inoremap <expr> <cr>    pumvisible() ? "\<C-y>" : "\<cr>"
 " bprev/bnext
 nnoremap <silent> <C-j> :bprev<CR>
 nnoremap <silent> <C-k> :bnext<CR>
+
+" vimgrep
+nnoremap [q :cprevious<CR>
+nnoremap ]q :cnext<CR>
+nnoremap [Q :<C-u>cfirst<CR>
+nnoremap ]Q :<C-u>clast<CR>
