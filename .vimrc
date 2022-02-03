@@ -36,6 +36,9 @@ Plug 'mattn/vim-molder'
 " toml
 Plug 'cespare/vim-toml'
 
+" vim-sonictemplate
+Plug 'mattn/vim-sonictemplate'
+
 call plug#end()
 """"""""""""""""""""""""""""""
 set nocompatible
