@@ -39,6 +39,10 @@ Plug 'cespare/vim-toml'
 " vim-sonictemplate
 Plug 'mattn/vim-sonictemplate'
 
+" twc
+Plug 'shinshin86/twc.vim'
+let g:twc_colors = ["base16-default-dark", "desert", "evening", "slate", "shine", "blue", "darkblue", "default"]
+
 call plug#end()
 """"""""""""""""""""""""""""""
 set nocompatible
