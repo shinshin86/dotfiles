@@ -43,6 +43,9 @@ Plug 'mattn/vim-sonictemplate'
 Plug 'shinshin86/twc.vim'
 let g:twc_colors = ["base16-default-dark", "desert", "evening", "slate", "shine", "blue", "darkblue", "default"]
 
+" zig
+Plug 'ziglang/zig.vim'
+
 call plug#end()
 """"""""""""""""""""""""""""""
 set nocompatible
