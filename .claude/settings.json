@@ -1,0 +1,16 @@
+{
+  "hooks": {
+    "Notification": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "afplay <notification.wav file path>"
+          }
+        ]
+      }
+    ]
+  }
+}
+
