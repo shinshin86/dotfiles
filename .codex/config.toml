@@ -1,0 +1,6 @@
+model_reasoning_effort = "high"
+network_access = true
+notify = ["/bin/sh", "-c","afplay <notification.wav file path>"]
+
+[tools]
+web_search = true
