@@ -1,5 +1,7 @@
-model_reasoning_effort = "high"
+model = "gpt-5-codex"
 network_access = true
+sandbox_mode = "workspace-write"
+model_reasoning_effort = "high"
 notify = ["/bin/sh", "-c","afplay <notification.wav file path>"]
 
 [tools]
