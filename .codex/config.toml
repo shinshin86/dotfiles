@@ -4,5 +4,5 @@ sandbox_mode = "workspace-write"
 model_reasoning_effort = "high"
 notify = ["/bin/sh", "-c","afplay <notification.wav file path>"]
 
-[tools]
-web_search = true
+[features]
+web_search_request = true
