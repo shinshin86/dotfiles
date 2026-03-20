@@ -1,6 +1,14 @@
 # dotfiles
 dotfiles
 
+## Git config setup
+
+```sh
+curl -fsSL https://raw.githubusercontent.com/shinshin86/dotfiles/master/.gitconfig -o ~/.gitconfig
+# edit {name} and {email}
+vim ~/.gitconfig
+```
+
 ## WezTerm setup on macOS
 
 ```sh
