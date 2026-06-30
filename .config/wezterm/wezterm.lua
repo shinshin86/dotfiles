@@ -82,4 +82,71 @@ config.keys = require("keybinds").keys
 config.key_tables = require("keybinds").key_tables
 config.leader = { key = "q", mods = "CTRL", timeout_milliseconds = 2000 }
 
+----------------------------------------------------
+-- 現在開いているWezTermすべてのタブをクリップボードにコピー
+----------------------------------------------------
+local wezterm = require 'wezterm'
+
+config.keys = config.keys or {}
+
+table.insert(config.keys, {
+  key = 'P',
+  mods = 'CTRL|SHIFT|ALT',
+
+  -- Ctrl + Shift + Alt + P を押すと、
+  -- 現在開いているすべてのWezTerm GUIウィンドウ内の
+  -- すべてのタブ、すべてのペインのカレントディレクトリを集める。
+  --
+  -- 結果はフルパスだけを1行ずつ並べたテキストとして
+  -- クリップボードにコピーされる。
+  --
+  -- 例:
+  -- /Users/me/project-a
+  -- /Users/me/project-b
+  -- /home/me/app
+  action = wezterm.action_callback(function(source_window, _)
+    local lines = {}
+    local count = 0
+    local unknown_count = 0
+
+    -- 開いているすべてのWezTerm GUIウィンドウを対象にする
+    for _, gui_window in ipairs(wezterm.gui.gui_windows()) do
+      local mux_window = gui_window:mux_window()
+
+      -- 各ウィンドウ内のすべてのタブを対象にする
+      for _, tab_info in ipairs(mux_window:tabs_with_info()) do
+        -- 各タブ内のすべてのペインを対象にする
+        for _, pane_info in ipairs(tab_info.tab:panes_with_info()) do
+          local pane = pane_info.pane
+
+          -- 新しいWezTermでは Url オブジェクトが返る。
+          -- cwd.file_path にデコード済みのフルパスが入っている。
+          local cwd = pane:get_current_working_dir()
+
+          count = count + 1
+
+          if cwd and cwd.file_path and cwd.file_path ~= '' then
+            lines[#lines + 1] = cwd.file_path
+          else
+            -- WezTermがそのペインの場所を把握できない場合
+            lines[#lines + 1] = '<unknown>'
+            unknown_count = unknown_count + 1
+          end
+        end
+      end
+    end
+
+    -- フルパスを1行ずつ並べてクリップボードにコピーする
+    source_window:copy_to_clipboard(table.concat(lines, '\n'), 'Clipboard')
+
+    -- コピー完了を通知する
+    source_window:toast_notification(
+      'WezTerm',
+      string.format('%d個の場所をコピーしました。unknown=%d', count, unknown_count),
+      nil,
+      2500
+    )
+  end),
+})
+
 return config
