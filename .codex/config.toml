@@ -1,8 +1,12 @@
 model = "gpt-5-codex"
-network_access = true
 sandbox_mode = "workspace-write"
 model_reasoning_effort = "high"
 notify = ["/bin/sh", "-c","afplay <notification.wav file path>"]
 
 [features]
 web_search_request = true
+
+# network_access must live inside [sandbox_workspace_write];
+# a top-level network_access key is silently ignored by Codex.
+[sandbox_workspace_write]
+network_access = true
