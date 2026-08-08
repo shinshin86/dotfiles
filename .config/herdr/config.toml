@@ -1,0 +1,17 @@
+# herdr configuration
+
+# バックグラウンド通知をOSの通知センターに出す
+# ("off" = 出さない / "herdr" = アプリ内トースト / "terminal" = 端末経由 / "system" = OS)
+[ui.toast]
+delivery = "system"
+
+[ui]
+# エージェント一覧を「要対応が上」の順に並べる ("spaces" = workspace順)
+agent_panel_sort = "priority"
+
+[experimental]
+# IMEがオンでも prefix (ctrl+b) が効くよう、prefix中だけASCII配列に切り替える
+switch_ascii_input_source_in_prefix = true
+
+# Claude/Codex の入力欄で日本語変換の候補ウィンドウがカーソルに追従するようにする
+reveal_hidden_cursor_for_cjk_ime = true
