@@ -9,6 +9,18 @@ delivery = "system"
 # エージェント一覧を「要対応が上」の順に並べる ("spaces" = workspace順)
 agent_panel_sort = "priority"
 
+[keys]
+# エージェントパネルの行へ番号で直接ジャンプする(既定では未割り当て)。
+# agent_panel_sort = "priority" と併用しているため、1 番 = 最優先の要対応。
+# 「OS通知で気づく -> herdr にフォーカス -> prefix+alt+1 で承認待ちへ」という導線。
+focus_agent = "prefix+alt+1..9"
+
+# 補足:
+# - prefix+o (open_notification_target) は "herdr 内に表示中の通知" が対象なので、
+#   ui.toast.delivery = "system" ではトーストが herdr 内に出ず機能しない。
+# - next_agent / previous_agent は状態を見ずパネル順に送るだけなので、
+#   「承認待ちへ飛ぶ」用途には使えない。
+
 [experimental]
 # IMEがオンでも prefix (ctrl+b) が効くよう、prefix中だけASCII配列に切り替える
 switch_ascii_input_source_in_prefix = true
